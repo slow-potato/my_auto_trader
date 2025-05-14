@@ -269,12 +269,12 @@ def run_scheduler():
     init_db()
     
     print("비트코인 자동 트레이딩 시스템 시작...")
-    print("스케줄링된 실행 시간: 매일 09:00, 15:00, 21:00")
+    print("스케줄링된 실행 시간: 매일 07:00, 13:00, 19:00")
     
     # 매일 특정 시간에 작업 실행하도록 스케줄링
-    # schedule.every().day.at("07:00").do(execute_trade)
-    # schedule.every().day.at("13:00").do(execute_trade)
-    # schedule.every().day.at("19:00").do(execute_trade)
+    schedule.every().day.at("07:00").do(execute_trade)
+    schedule.every().day.at("13:00").do(execute_trade)
+    schedule.every().day.at("19:00").do(execute_trade)
     
     # 스케줄 루프 실행
     while True:
@@ -283,8 +283,5 @@ def run_scheduler():
 
 # 실행
 if __name__ == "__main__":
-    # 스케줄러 대신 즉시 실행
-    print("트레이딩 함수 1회 실행...")
-    execute_trade()
-    print("실행 완료!")
-    # run_scheduler()
+    # 스케줄러로 자동 실행
+    run_scheduler()
